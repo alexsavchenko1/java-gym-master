@@ -6,6 +6,7 @@ import java.util.*;
 public class Timetable {
 
     private Map<DayOfWeek, Map<TimeOfDay, List<TrainingSession>>> timetable;
+
     public Timetable() {
         timetable = new HashMap<>();
     }
@@ -46,16 +47,14 @@ public class Timetable {
                 List<TrainingSession> listOfTrainingSessions = timetableOnDay.get(timeOfDay);
                 listOfTrainingSessions.add(trainingSession);
 
-            }
-            else {
+            } else {
                 List<TrainingSession> listOfTrainingSessions = new ArrayList<>();
                 listOfTrainingSessions.add(trainingSession);
                 timetableOnDay.put(timeOfDay, listOfTrainingSessions);
             }
 
 
-        }
-        else {
+        } else {
             List<TrainingSession> listOfTrainingSessions = new ArrayList<>();
             listOfTrainingSessions.add(trainingSession);
             Map<TimeOfDay, List<TrainingSession>> middleTreeMap = new TreeMap<>(timeComparator);
